@@ -1,25 +1,32 @@
 {
-  "name": "on-demand-canary",
+  "name": "on-demand-synthetics",
   "version": "0.1.0",
   "bin": {
-    "on-demand-canary": "bin/on-demand-canary.js"
+    "on-demand-synthetics": "bin/on-demand-synthetics.js"
   },
   "scripts": {
     "build": "tsc",
+    "test:lambda": "tsc && node ./test-lambda.mjs --input-type=module",
     "watch": "tsc -w",
     "test": "jest",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "cdk:dep": "npm run build && cdk synth && cdk bootstrap && cdk deploy",
+    "diagram": "npx cdk-dia --rendering cytoscape-html && npx http-server diagram -o"
   },
   "devDependencies": {
     "@types/jest": "^29.4.0",
     "@types/node": "18.11.18",
+    "aws-cdk": "2.64.0",
+    "cdk-dia": "^0.9.0",
     "jest": "^29.4.1",
     "ts-jest": "^29.0.5",
-    "aws-cdk": "2.64.0",
     "ts-node": "^10.9.1",
     "typescript": "~4.9.5"
   },
   "dependencies": {
+    "@aws-cdk/aws-synthetics": "^1.192.0",
+    "@aws-cdk/aws-synthetics-alpha": "^2.64.0-alpha.0",
+    "@aws-sdk/client-synthetics": "^3.272.0",
     "aws-cdk-lib": "2.64.0",
     "constructs": "^10.0.0"
   }
