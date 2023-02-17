@@ -5,6 +5,8 @@
     "on-demand-synthetics": "bin/on-demand-synthetics.js"
   },
   "scripts": {
+    "clean": "rm ./lib/**/*.d.ts 2> /dev/null || rm ./lib/**/*.js 2> /dev/null || true",
+    "prebuild": "npm run clean",
     "build": "tsc",
     "test:lambda": "tsc && node ./test-lambda.mjs --input-type=module",
     "watch": "tsc -w",

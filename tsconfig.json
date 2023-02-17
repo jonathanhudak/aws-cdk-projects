@@ -20,5 +20,5 @@
     "typeRoots": ["./node_modules/@types"]
   },
   "exclude": ["node_modules", "cdk.out"],
-  "include": ["lib/canary/nodejs/node_modules"]
+  "include": ["lib/canary/nodejs/node_modules", "lib/**/*.ts"]
 }
