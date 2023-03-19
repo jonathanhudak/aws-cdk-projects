@@ -7,5 +7,6 @@ node_modules
 .cdk.staging
 cdk.out
 diagram
+.DS_Store
 
 !./lib/canary/nodejs/node_modules/*.ts
